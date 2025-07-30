@@ -53,19 +53,47 @@ public class BasePage {
  }
 
  //* Método que private solo es ser accesible dentro de la clase
- private WebElement find(String locator) {
-  //TODO: implementar para css selector, ids, selectores decendentes
-  return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
- }
+   protected WebElement find(String type, String locator) {
+    By by;
+    switch (type.toLowerCase()) {
+      case "id":
+        by = By.id(locator);
+        break;
+      case "css":
+        by = By.cssSelector(locator);
+        break;
+      case "xpath":
+        by = By.xpath(locator);
+        break;
+      case "class":
+        by = By.className(locator);
+        break;
+      case "name":
+        by = By.name(locator);
+        break;
+      case "tag":
+        by = By.tagName(locator);
+        break;
+      case "linktext":
+        by = By.linkText(locator);
+        break;
+      default:
+        throw new IllegalArgumentException("Tipo de locator no soportado: " + type);
+    }
+    return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+  }
 
- public void write(String locator, String textoToWrite) {
-  find(locator).clear(); // Limpia el campo de texto
-  find(locator).sendKeys(textoToWrite); // Escribe lo necesitamos
- }
 
- public void clickElement(String locator) {
-  find(locator).click();
- }
+  public void write(String type, String locator, String textToWrite) {
+    find(type, locator).clear();
+    find(type, locator).sendKeys(textToWrite);
+  }
+
+
+  public void clickElement(String type, String locator) {
+    find(type, locator).click();
+  }
+
 
 
 }

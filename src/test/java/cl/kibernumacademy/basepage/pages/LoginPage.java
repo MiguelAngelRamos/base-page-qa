@@ -6,20 +6,21 @@ public class LoginPage extends BasePage {
   private String passwordField = "//input[@id='password']";
   private String submitButton = "//button[@type='submit']";
 
+
   public void navigateToLogin() {
     navigateTo("https://testing-qa.netlify.app/pages/login");
   }
 
   public void enterEmail(String email) {
-    write(emailField, email);
+    write("xpath", emailField, email);
   }
 
   public void enterPassword(String password) {
-    write(passwordField, password);
+    write("xpath", passwordField, password);
   }
 
   public void submitLogin() {
-    clickElement(submitButton);
+    clickElement("xpath", submitButton);
   }
 
 }
