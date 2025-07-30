@@ -2,9 +2,12 @@ package cl.kibernumacademy.basepage.pages;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -49,8 +52,19 @@ public class BasePage {
     }
  }
 
+ //* Método que private solo es ser accesible dentro de la clase
+ private WebElement find(String locator) {
+  //TODO: implementar para css selector, ids, selectores decendentes
+  return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+ }
+
  public void write(String locator, String textoToWrite) {
-  
+  find(locator).clear(); // Limpia el campo de texto
+  find(locator).sendKeys(textoToWrite); // Escribe lo necesitamos
+ }
+
+ public void clickElement(String locator) {
+  find(locator).click();
  }
 
 

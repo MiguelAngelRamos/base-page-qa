@@ -11,10 +11,15 @@ public class LoginPage extends BasePage {
   }
 
   public void enterEmail(String email) {
-
+    write(emailField, email);
   }
 
   public void enterPassword(String password) {
-    
+    write(passwordField, password);
   }
+
+  public void submitLogin() {
+    clickElement(submitButton);
+  }
+
 }
