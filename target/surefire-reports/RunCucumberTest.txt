@@ -1,0 +1,21 @@
+-------------------------------------------------------------------------------
+Test set: RunCucumberTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.244 s <<< FAILURE! - in RunCucumberTest
+Login with invalid email and password  Time elapsed: 2.011 s  <<< ERROR!
+io.cucumber.junit.platform.engine.UndefinedStepException: 
+The step 'I should see email validation error' and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Then("I should see email validation error")
+public void i_should_see_email_validation_error() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("I should see password validation error")
+public void i_should_see_password_validation_error() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
