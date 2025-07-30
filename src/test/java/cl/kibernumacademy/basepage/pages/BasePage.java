@@ -23,7 +23,7 @@ public class BasePage {
    * Referencia: https://cucumber.io/docs/cucumber/environment-variables/
   */
 
-  public static void initDriver(WebDriver webDriver) {
+  public static void initDriver() {
     if(driver != null) driver.quit();
 
     WebDriverManager.chromedriver().setup();
