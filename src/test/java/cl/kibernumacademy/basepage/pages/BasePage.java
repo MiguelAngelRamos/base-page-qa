@@ -49,5 +49,9 @@ public class BasePage {
     }
  }
 
+ public void write(String locator, String textoToWrite) {
+  
+ }
+
 
 }
