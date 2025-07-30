@@ -34,6 +34,20 @@ public class BasePage {
     // Esto no hace nada por que todo lo inicializamos en el initDriver()
   }
 
-  
+  //* Ir hacia el sitio web 
+  public static void navigateTo(String url) {
+    System.out.println(url);
+    driver.get(url);
+  }
+
+ //* Cerrar el navegador
+ public static void closeBrowser() {
+    if(driver != null) {
+      driver.quit();
+      driver = null;
+      wait = null;
+    }
+ }
+
 
 }
