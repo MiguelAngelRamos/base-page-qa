@@ -94,6 +94,16 @@ public class BasePage {
     find(type, locator).click();
   }
 
+  public String getInputValidationMessageByIdBootstrap5(String inputId) {
+    WebElement input = find("id", inputId); // EL objetivo es obtener el input email y password o cualquier elemento de input
+    if(input.getAttribute("class").contains("is-invalid")) {
+      // selecciona todos los elementos <div> que son hermanos del mismo padre y están despues del input
+      // Y filtra solos los div que contengan la clase 'invalid-feedback'
+      return input.findElement(By.xpath("following-sibling::div[contains(@class, 'invalid-feedback')]")).getText();
+      
+    }
+    return "";
+  }
 
 
 }

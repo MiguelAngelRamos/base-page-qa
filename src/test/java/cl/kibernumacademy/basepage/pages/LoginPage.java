@@ -5,6 +5,9 @@ public class LoginPage extends BasePage {
   private String emailField = "//input[@id='email']";
   private String passwordField = "//input[@id='password']";
   private String submitButton = "//button[@type='submit']";
+  // Ejemplo para utilizar los id pero podria haber utlizado xpath
+  private String emailFieldById = "email";
+  private String passwordFieldById = "password";
 
 
   public void navigateToLogin() {
@@ -21,6 +24,17 @@ public class LoginPage extends BasePage {
 
   public void submitLogin() {
     clickElement("xpath", submitButton);
+  }
+
+  // Obtener El mensaje de validacion de email
+
+  public String getEmailValidationMessageBootstrap5() {
+    return getInputValidationMessageByIdBootstrap5(emailFieldById);
+  }
+
+  // Obtener el mensaje de validacion de password
+  public String getPasswordValidationMessageBootstrap5() {
+    return getInputValidationMessageByIdBootstrap5(passwordFieldById);
   }
 
 }
