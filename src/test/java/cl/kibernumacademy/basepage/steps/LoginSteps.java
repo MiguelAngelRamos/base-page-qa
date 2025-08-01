@@ -1,11 +1,14 @@
 package cl.kibernumacademy.basepage.steps;
 
+import org.junit.jupiter.api.Assertions;
+
 import cl.kibernumacademy.basepage.pages.BasePage;
 import cl.kibernumacademy.basepage.pages.LoginPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class LoginSteps {
@@ -32,6 +35,18 @@ public class LoginSteps {
   @And("I submit the login form")
   public void i_submit_the_login_form() {
     loginPage.submitLogin();
+  }
+
+  @Then("I should see email validation error")
+  public void i_should_see_email_validation_error() {
+    // Ingrese un correo válido.
+    Assertions.assertEquals("Ingrese un correo válido.", loginPage.getEmailValidationMessageBootstrap5());
+  }
+
+  @And("I should see password validation error")
+  public void i_should_see_password_validation_error() {
+    // Mínimo 8 caracteres, al menos una letra y un número.
+   Assertions.assertEquals("Mínimo 8 caracteres, al menos una letra y un número.", loginPage.getPasswordValidationMessageBootstrap5());
   }
 
   @After
