@@ -30,7 +30,7 @@ public class LoginSteps {
     loginPage.enterEmail(email);
     loginPage.enterPassword(password);
   }
-ñ
+
   // And I submit the login form
   @And("I submit the login form")
   public void i_submit_the_login_form() {
